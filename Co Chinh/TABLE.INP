@@ -1,0 +1,7 @@
+/* Solution:
+Nhận xét: Nếu không tồn tạ 1 hình vuông độ dài cạnh = k gồm toàn số 1 thì không tồn tại
+hình vuông nào có độ dài cạnh > k gồm toàn số 1
+=> Chặt nhọ phân k, thử tất cả các ô (i,j) và tìm u,v
+u = i+k-1, v = j+k-1
+if(sum(u,v,i,j) == k*k) => là 1 hình vuông gồm toàn số 1
+*/

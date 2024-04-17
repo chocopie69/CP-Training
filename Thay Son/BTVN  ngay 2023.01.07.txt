@@ -1,0 +1,91 @@
+http://tailieu.hoctincungthukhoa.com/QHD%20-%20Nguyen%20Thanh%20Tung.pdf
+
+Chú ý: Trọng lượng a[i] là số nguyên
+
+Gọi F[i, j] là giá trị lớn nhất khi xét i đồ vật từ 1..i và trọng lượng không vượt quá j
+
+Khi đó, kết quả của bài toán: F[n, W]
+
+Xây dựng công thức Quy hoạch động: F[i, j]
+
+Có 2 trường hợp xảy ra:
+
+- TH1: a[i] > j
+	F[i, j] = F[i-1, j]
+- TH2: a[i] <= j
+	Có 2 tình huống xảy ra:
+	+ Th1: Chọn đồ vật i
+		F[i, j] = b[i] + F[i-1, j - a[i]]
+	+ Th2: Không chọn đồ vật i
+		F[i, j] = F[ii
+	F[i, j] = max(b[i] + F[i-1, j - a[i]], F[i-1, j])
+
+Bài toán con cơ bản:
+
+F[0, j]: là giá trị lớn nhất khi xét i đồ vật từ 1..0 và trọng lượng không vượt quá j
+
+Như vậy: F[0, j] = 0
+
+F[i, 0]: là giá trị lớn nhất khi xét i đồ vật từ 1..i và trọng lượng không vượt quá 0
+
+Như vậy: F[i, 0] = 0
+
+---------------------------
+
+Suy luận logic
+
+Nếu trời mưa thì đường ướt
+
+Vậy: Nếu đường ướt thì trời mưa ??????????????????
+
+Nếu đường không ướt thì trời không mưa!	Hợp logic
+
+P => Q	~	not Q => not P
+
+-------------------
+
+Dãy con có tổng bằng S
+
+.INP
+6 23
+4 1 5 3 5 9
+
+.OUT
+1
+4 5 5 9
+
+.INP
+6 2
+4 1 5 3 5 9
+
+F[i, j] = true nếu như có thể chọn được dãy con từ a[1..i] để có tổng bằng j
+
+Như vậy, kết quả của bài toán: F[n, S]
+
+=> Công thức Quy hoạch động
+
+Bài toán con cơ bản:
+
+F[i, 0] = true nếu như có thể chọn được dãy con từ a[1..i] để có tổng bằng 0
+
+=> Có một cách là không chọn phần tử nào
+
+Như vậy, hiển nhiên F[i, 0] = true
+
+F[0, j] = true nếu như có thể chọn được dãy con từ a[1..0] để có tổng bằng j
+
+Như vậy: 
+
+F[0, j] = false với j > 0
+F[0, 0] = true
+
+BTVN ngày 07/01/2022:
+
+http://tailieu.hoctincungthukhoa.com/QHD%20-%20Nguyen%20Thanh%20Tung.pdf
+
+
+Mô hình II của Bài toán Quy hoạch động
+
+Bài b, c, d, e
+
+https://oj.vnoi.info/organization/34-cvahnf

@@ -1,0 +1,44 @@
+a[1] + a[2] + ... + a[n] = Tong
+
+a[1] - a[2] + a[3] - a[4] + a[5] ... + a[n] = S = (a[1] + a[2] + a[3] + ... + a[n]) - (a[2] + a[4] + ...) = Tong - 2*(a[2] + a[4] + ...)
+
+Suy ra:
+
+a[2] + a[4] + ... = (Tong - S)/2
+
+Như vậy: Tong - S chia hết cho 2
+
+Dựa vào mô hình: Dãy con có tổng bằng S
+
+-----------------------------------------
+
+Gọi F[i, j] = true nếu có thể điền dấu + hoặc - vào trước các số từ a[2..i] để biểu thức có giá trị bằng j,
+ngược lại F[i, j] = false
+
+Như vậy, yêu cầu của bài toán: Kiểm tra xem F[n, S] = true hay không ?
+
+Xây dựng công thức Quy hoạch động:
+
+a[1] .............. a[i-1] - a[i] = j
+
+Ta thấy, có 2 trường hợp xảy ra:
++ Th1: Điền dấu + vào trước a[i]
+	F[i, j] = F[i-1, j - a[i]]
++ Th2: Điền dấu - vào trước a[i]
+	F[i, j] = F[i-1, j + a[i]]
+	
+Tổng hợp lại: F[i, j] = F[i-1, j - a[i]] || F[i-1, j + a[i]]
+
+Vậy: -Tong <= j <= Tong
+
+Bài toán con cơ bản:
+
+F[1, a[1]] = true
+
+
+BTVN ngày 12/2/2023:
+
+Code lại bài d (cách 2), e trong mô hình II của Quy hoạch động (Bài toán cái túi 0-1)
+
+Tìm hiểu mô hình IV của Quy hoạch động - Bài toán cái túi 0-n
+

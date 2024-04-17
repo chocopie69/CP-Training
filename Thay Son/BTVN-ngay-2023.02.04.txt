@@ -1,0 +1,34 @@
+Gọi F[j] là giá trị lớn nhất của ai + aj - ak với mọi i < j < k
+
+Như vậy, yêu cầu của bài toán: max(F[j])
+
+Xây dựng công thức tính F[j]
+
+--------------------------
+
+BTVN ngày 04/02/2023:
+
+http://olympic.hoctincungthukhoa.com/contests/problems/37.%20SEQUENCE%20-%20sua%20lai%20dong%20dau%20tien%20la%20n,%20cac%20dong%20tiep%20theo,%20moi%20dong%20co%20the%20co%20nhieu%20so%20la%20day%20a.png
+
+Truy vết cho bài SEQUENCE
+
+--------------------------------------------------
+
+Tìm min trong đoạn tịnh tiến
+
+Cho một dãy số a gồm n phần tử, một số R với T bộ test.
+
+Q(i, i + R) là một truy vấn đưa ra min(a[i..i+R])
+
+Ví dụ:
+
+.INP
+6 1
+1 -1 5 3 9 2
+2
+2
+5
+
+.OUT
+-1
+2

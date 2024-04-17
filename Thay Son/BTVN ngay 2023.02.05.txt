@@ -1,0 +1,64 @@
+Gọi F[i, j] = true nếu như có thể chọn ra các số từ dãy a[1..i]
+để được tổng bằng j, ngược lại F[i, j] = false
+
+Như vậy, yêu cầu của bài toán trở thành:
+
+Kiểm tra xem F[n, S] == true ?
+
+Xây dựng công thức Quy hoạch động để tính F[i, j]:
+
+Có 2 trường hợp xảy ra:
+
+- TH1: a[i] > j
+	F[i, j] = F[i-1, j]
+- TH2: a[i] <= j
+	Có 2 tình huống xảy ra:
+	+ Th1: Chọn a[i]
+		F[i, j] = F[i-1, j - a[i]]
+	+ Th2: Không chọn a[i]
+		F[i, j] = F[i-1, j]
+	F[i, j] = F[i-1, j - a[i]] || F[i-1, j]
+
+Bài toán con cơ bản:
+
+F[i, 0] = true nếu như có thể chọn ra các số từ dãy a[1..i]
+để được tổng bằng 0, ngược lại F[i, 0] = false 
+
+Như vậy: F[i, 0] = true
+
+F[0, j] = true nếu như có thể chọn ra các số từ dãy a[1..0]
+để được tổng bằng j, ngược lại F[0, j] = false
+
+Như vậy:
+F[0, j] 	= 	false, với j > 0
+			true,  với j = 0
+
+----------------------------------------
+
+Gọi T là tổng số kẹo của n gói.
+
+Gọi tổng số kẹo thuộc phần 1 là: P1
+Gọi tổng số kẹo thuộc phần 2 là: P2
+
+Như vậy: P1 + P2 = T
+
+Không mất tính tổng quát, giả sử P1 <= P2
+
+Như vậy: P1 <= T/2 <= P2
+
+Chênh lệch giữa hai phần là: 
+
+P2 - P1 = (T - P1) - P1 = T - 2*P1
+
+for (int j = T/2; j >= 0; j--)
+	if F[n, j] == true then {
+		P1 = j;
+		P2 = T - P1;
+		break;
+	}
+
+BTVN ngày 5/2/2023:
+
+Tìm lỗi sai trong bài Chia kẹo nộp trên Hackerrank
+
+c, d, e trong mô hình II của Quy hoạch động

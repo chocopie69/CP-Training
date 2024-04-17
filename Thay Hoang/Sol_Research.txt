@@ -1,0 +1,5 @@
+Lưu 2 hàng đợi
+Ban đầu đang ở A. Làm mọi việc có thể làm luôn (không phụ thuộc việc khác). Trong quá trình làm nếu mở khóa được việc nào khác thì có 2 TH:
+- Việc đó ở nơi mình đang ở => cho vào hàng đợi hiện tại và xử lý luôn
+- Không ở nơi hiện tại => Cho vào hàng đợi khác
+Bao giờ hết việc ở hàng đợi hiện tại => chuyển qua hàng đợi khác và làm tương tự

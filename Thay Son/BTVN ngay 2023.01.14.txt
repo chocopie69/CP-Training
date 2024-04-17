@@ -1,0 +1,30 @@
+BTVN ngày 14/1/2023:
+
+Bài 1, 3
+Bài 4
+
+Sắp xếp lại kích thước của các bức tranh (giá trị của các bức tranh cũng phải thay đổi theo)
+
+a1 <= a2 <= ... ai <= ... <= aj <= ... <= an
+
+Có nhiều H(i, j) = bi + ... + bj - (aj - ai)
+
+Tìm H(i, j) -> max
+
+* Cố định j. Tìm i để H(i, j) là lớn nhất
+
+Gọi c là mảng cộng dồn của b
+
+Như vậy: H(i, j) = c[j] - c[i-1] - (a[j] - a[i])
+= (c[j] - a[j]) - (c[i-1] - a[i])
+
+Suy ra: c[i-1] - a[i] -> min
+
+c[0] - a[1], c[1] - a[2], ..., c[n-1] - a[n]	-> min
+
+
+
+* Lúc đó, kết quả của bài toán: max H(., j), với j = 1..n
+
+
+

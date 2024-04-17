@@ -1,0 +1,100 @@
+Tìm giá trị lớn nhất của a[j] - a[i], với i < j
+Gọi F[j] là giá trị lớn nhất của a[j] - a[i], với i < j
+
+Như vậy, yêu cầu của bài toán là:
+
+max(F[j]), với 1 <= j <= n
+
+F[j] = max(a[j] - a[i]), với i < j 
+= a[j] - min(a[i]), với i < j
+
+----------------
+
+Gọi F3[x] = max(a[i] + a[j] - a[k]) với 1 <= i < j < k <= x
+
+Như vậy, yêu cầu của bài toán là: Tính F3[n]
+
+Xây dựng công thức để tính F3[x]
+
+Có 2 trường hợp xảy ra:
+
+- TH1: a[x] được chọn trong F3[x]
+	F3[x] = max(a[i] + a[j]) - a[x] với i < j < x
+- TH2: a[x] không được chọn trong F3[x]
+	F3[x] = F3[x-1]
+
+Tổng hợp lại: F3[x] = max(F3[x-1], max(a[i] + a[j]) - a[x]), với i < j < x
+
+F3[x] = max(F3[x-1], F2[x-1] - a[x])
+
+F3[3] = a[1] + a[2] - a[3]
+
+Không tồn tại: F3[1] và F3[2]
+
+---
+
+Tương tự, ta gọi F2[x] = max(a[i] + a[j]), với i < j <= x
+
+Như vậy, có 2 trường hợp xảy ra:
+
+- TH1: a[x] được chọn trong F2[x]
+	F2[x] = max(a[i]) + a[x]
+- TH2: a[x] không được chọn trong F2[x]
+	F2[x] = F2[x-1]
+
+Tổng hợp lại: F2[x] = max(F2[x-1], max(a[i]) + a[x]), với i < x
+
+F2[x] = max(F2[x-1], F1[x-1] + a[x])
+
+F2[2] = a[1] + a[2]
+
+F2[3] = max(a[1] + a[2], a[1] + a[3], a[2] + a[3])
+
+Không tồn tại: F2[1]
+--
+
+Đặt F1[x] = max(a[i]), với 1 <= i <= x
+
+Như vậy, có 2 trường hợp xảy ra:
+
+- TH1: a[x] là lớn nhất trong F1[x]
+	F1[x] = a[x]
+- TH2: a[x] không lớn nhất trong F1[x]
+	F1[x] = F1[x-1]
+
+Tổng hợp lại: F1[x] = max(F1[x-1], a[x])
+
+F1[3] = max(a[1], a[2], a[3])
+
+Bài này muốn có nghiệm thì chắc chắn n >= 3
+
+-------------------------------
+
+DP_A5
+
+F[R] = max(a[L] + ... + a[R]), với 1 <= L <= R
+
+Như vậy, yêu cầu của bài toán trở thành:
+
+max(F[R]), với 1 <= R <= n
+
+Gọi Sum là tổng cộng dồn
+
+F[R] = max(Sum(R) - Sum(L-1)), với 1 <= L <= R
+= Sum(R) - min(Sum(L-1)), với 1 <= L <= R
+
+
+BTVN ngày 29/1/2023
+
+http://olympic.hoctincungthukhoa.com/contests/problems/37.%20SEQUENCE%20-%20sua%20lai%20dong%20dau%20tien%20la%20n,%20cac%20dong%20tiep%20theo,%20moi%20dong%20co%20the%20co%20nhieu%20so%20la%20day%20a.png
+
+http://olympic.hoctincungthukhoa.com/contests/problems/68.%20Luyen%20tap%20QHD%20co%20ban.pdf
+
+Truy vết bài 3
+
+Làm bài 4 (Tổng cộng dồn)
+
+Làm bài 1
+
+
+
